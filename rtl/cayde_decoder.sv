@@ -24,9 +24,9 @@ module cayde_decoder ( input logic [31:0] instr_in,
 	assign rd = instr[11:7];
 	
 	always_comb begin
-		unique case (opcode_in) begin
+		unique case (opcode_in)
 			OPCODE_OP: begin
-				unique case ({funct7, funct3}) begin
+				unique case ({funct7, funct3})
 					{7'b000_0000, 3'b000}: alu_op = ALU_ADD;
 					{7'b010_0000, 3'b000}: alu_op = ALU_SUB;
 					{7'b000_0000, 3'b100}: alu_op = ALU_XOR;
