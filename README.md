@@ -1,2 +1,2 @@
 # cayde
-cayde is a RISC-V soft processor.
+cayde is a RISC-V processor.
