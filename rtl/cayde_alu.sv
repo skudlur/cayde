@@ -1,5 +1,5 @@
 /*
-* ALU Module for 32-bit RISC-V processor
+* ALU Module for cayde - RISC-V processor
 */
 
 module cayde_alu ( input cayde_pkg::alu_op op_i,
