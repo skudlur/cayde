@@ -1,5 +1,5 @@
 # cayde
-cayde is a RISC-V processor.
+cayde is a RV32I processor written in SystemVerilog.
 
 ## Instructions to synthesize the core.
 
