@@ -26,36 +26,17 @@ module cayde_decoder ( input logic [31:0] instr_in,
 	assign rd = instr[11:7];
 	
 	always_comb begin
-		unique case (opcode_in)
-			OPC_OP: begin
-				unique case ({funct7, funct3})
-					{7'b000_0000, 3'b000}: alu_op = ALU_ADD;
-					{7'b010_0000, 3'b000}: alu_op = ALU_SUB;
-					{7'b000_0000, 3'b100}: alu_op = ALU_XOR;
-					{7'b000_0000, 3'b111}: alu_op = ALU_AND;
-					{7'b000_0000, 3'b110}: alu_op = ALU_OR;
-					default: illegal_instr = 1'b1;
-				endcase
-			end
-
-			OPC_LOAD: begin
-				unique case (instr[13:12])
-					2'b00: load_op = LOAD_BYTE_U;
-					2'b01: load_op = LOAD_HALF_WORD_U;
-					2'b10: load_op = LOAD_WORD;
-					default: illegal_instr = 1'b1;
-				endcase
-			end
-
-			OPC_STORE: begin
-				unique case (instr[13:12])
-					2'b00: store_op = STORE_BYTE;
-					2'b01: store_op = STORE_HALF_WORD;
-					2'b10: store_op = STORE_WORD;
-					default: illegal_instr = 1'b1;
-				endcase
-			end			
-							
+		unique case ({funct7, funct3})
+			{7'b000_0000, 3'b000}: alu_op = ALU_ADD;
+			{7'b010_0000, 3'b000}: alu_op = ALU_SUB;
+			{7'b000_0000, 3'b100}: alu_op = ALU_XOR;
+			{7'b000_0000, 3'b111}: alu_op = ALU_AND;
+			{7'b000_0000, 3'b110}: alu_op = ALU_OR;
+			{7'b000_0000, 3'b001}: alu_op = ALU_SLT;
+			{7'b000_0000, 3'b010}: alu_op = ALU_SLTU;
+			{7'b000_0000, 3'b011}: alu_op = ALU_SLL;
+			{7'b000_0000, 3'b100}: alu_op = ALU_SRL;
+			{7'b010_0000, 3'b001}: alu_op = ALU_SRA;	
 			default: illegal_instr = 1'b1;
 		endcase
 	end
