@@ -5,12 +5,10 @@
 module cayde_decoder ( input logic [31:0] instr_in,
 
 		       output cayde_pkg::alu_op alu_op,
-		       output cayde_pkg::load_op load_op,
-		       output cayde_pkg::store_op store_op
 		     );
 	import cayde_pkg::*;
 
-	logic illegal_instr;
+	logic illegal_instr = 1'b0;
 
 	logic [31:0] instr;
 	logic [6:0] funct7;
