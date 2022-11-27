@@ -11,8 +11,8 @@ module cayde_regfile ( input logic clk,
 		       input logic [31:0] wdata_in,
 		       input logic wen_in,
 
-		       output logic [31:0] rdata_out11,
-		       output logic [31:0] rdata_out12,
+		       output logic [31:0] rdata_out1,
+		       output logic [31:0] rdata_out2,
 		     );
 	reg [31:0] x0 = 32'b0, x1, x2, x3, x4, x5, x6, x7, x8, x9;
 	reg [31:0] x10, x11, x12, x13, x14, x15, x16, x17, x18, x19;

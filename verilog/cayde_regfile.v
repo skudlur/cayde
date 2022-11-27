@@ -6,8 +6,8 @@ module cayde_regfile (
 	waddr_in,
 	wdata_in,
 	wen_in,
-	rdata_out11,
-	rdata_out12
+	rdata_out1,
+	rdata_out2
 );
 	input wire clk;
 	input wire rst;
