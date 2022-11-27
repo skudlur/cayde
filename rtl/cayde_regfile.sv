@@ -20,12 +20,12 @@ module cayde_regfile ( input logic clk,
 
 	always @(*) begin
 		case (raddr_in1)
-			5'b0_0000: rdata_out11 <= x0;
-			5'b0_0001: rdata_out11 <= x1;
-			5'b0_0010: rdata_out11 <= x2;
-			5'b0_0011: rdata_out11 <= x3;
-			5'b0_0100: rdata_out11 <= x4;
-			5'b0_0101: rdata_out11 <= x5;
+			5'b0_0000: rdata_out1 <= x0;
+			5'b0_0001: rdata_out1 <= x1;
+			5'b0_0010: rdata_out1 <= x2;
+			5'b0_0011: rdata_out1 <= x3;
+			5'b0_0100: rdata_out1 <= x4;
+			5'b0_0101: rdata_out1 <= x5;
 			5'b0_0110: rdata_out1 <= x6;
 			5'b0_0111: rdata_out1 <= x7;
 			5'b0_1000: rdata_out1 <= x8;
