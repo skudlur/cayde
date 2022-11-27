@@ -15,7 +15,6 @@ module cayde_alu (
 			7'd2: res_var = op_a ^ op_b;
 			7'd3: res_var = op_a && op_b;
 			7'd4: res_var = op_a || op_b;
-			ALU_NOT: res_var = !op_a;
 			7'd5: res_var = $signed(op_a) << $signed(op_b);
 			7'd6: res_var = op_a << op_b;
 			7'd7: res_var = op_a << op_b;
