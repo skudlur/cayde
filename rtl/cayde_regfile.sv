@@ -18,6 +18,8 @@ module cayde_regfile ( input logic clk,
 	reg [31:0] x10, x11, x12, x13, x14, x15, x16, x17, x18, x19;
 	reg [31:0] x20, x21, x22, x23, x24, x25, x26, x27, x28, x29, x30, x31;
 
+	logic write_fault = 1'b0;
+	
 	always @(*) begin
 		case (raddr_in1)
 			5'b0_0000: rdata_out1 <= x0;
@@ -130,39 +132,39 @@ module cayde_regfile ( input logic clk,
 		end
 		else if (wen_in) begin
 			case (waddr_in)
-				5'b0_0000: wdata_out <= x0;
-				5'b0_0001: wdata_out <= x1;
-				5'b0_0010: wdata_out <= x2;
-				5'b0_0011: wdata_out <= x3;
-				5'b0_0100: wdata_out <= x4;
-				5'b0_0101: wdata_out <= x5;
-				5'b0_0110: wdata_out <= x6;
-				5'b0_0111: wdata_out <= x7;
-				5'b0_1000: wdata_out <= x8;
-				5'b0_1001: wdata_out <= x9;
-				5'b0_1010: wdata_out <= x10;
-				5'b0_1011: wdata_out <= x11;
-				5'b0_1100: wdata_out <= x12;
-				5'b0_1101: wdata_out <= x13;
-				5'b0_1110: wdata_out <= x14;
-				5'b0_1111: wdata_out <= x15;
-				5'b1_0000: wdata_out <= x16;
-				5'b1_0001: wdata_out <= x17;
-				5'b1_0010: wdata_out <= x18;
-				5'b1_0011: wdata_out <= x19;
-				5'b1_0100: wdata_out <= x20;
-				5'b1_0101: wdata_out <= x21;
-				5'b1_0110: wdata_out <= x22;
-				5'b1_0111: wdata_out <= x23;
-				5'b1_1000: wdata_out <= x24;
-				5'b1_1001: wdata_out <= x25;
-				5'b1_1010: wdata_out <= x26;
-				5'b1_1011: wdata_out <= x27;
-				5'b1_1100: wdata_out <= x28;
-				5'b1_1101: wdata_out <= x29;
-				5'b1_1110: wdata_out <= x30;
-				5'b1_1111: wdata_out <= x31;
-				default: wdata_out <= x0;
+				5'b0_0000: x0 <= wdata_in;
+				5'b0_0001: x1 <= wdata_in;
+				5'b0_0010: x2 <= wdata_in;
+				5'b0_0011: x3 <= wdata_in;
+				5'b0_0100: x4 <= wdata_in;
+				5'b0_0101: x5 <= wdata_in;
+				5'b0_0110: x6 <= wdata_in;
+				5'b0_0111: x7 <= wdata_in;
+				5'b0_1000: x8 <= wdata_in;
+				5'b0_1001: x9 <= wdata_in;
+				5'b0_1010: x10 <= wdata_in;
+				5'b0_1011: x11 <= wdata_in;
+				5'b0_1100: x12 <= wdata_in;
+				5'b0_1101: x13 <= wdata_in;
+				5'b0_1110: x14 <= wdata_in;
+				5'b0_1111: x15 <= wdata_in;
+				5'b1_0000: x16 <= wdata_in;
+				5'b1_0001: x17 <= wdata_in;
+				5'b1_0010: x18 <= wdata_in;
+				5'b1_0011: x19 <= wdata_in;
+				5'b1_0100: x20 <= wdata_in;
+				5'b1_0101: x21 <= wdata_in;
+				5'b1_0110: x22 <= wdata_in;
+				5'b1_0111: x23 <= wdata_in;
+				5'b1_1000: x24 <= wdata_in;
+				5'b1_1001: x25 <= wdata_in;
+				5'b1_1010: x26 <= wdata_in;
+				5'b1_1011: x27 <= wdata_in;
+				5'b1_1100: x28 <= wdata_in;
+				5'b1_1101: x29 <= wdata_in;
+				5'b1_1110: x30 <= wdata_in;
+				5'b1_1111: x31 <= wdata_in;
+				default: write_fault <= 1'b1;
 			endcase
 		end
 	end	
