@@ -17,11 +17,11 @@ module cayde_alu ( input cayde_pkg::alu_op op_i,
 			ALU_XOR: res_var = op_a ^ op_b;
 			ALU_AND: res_var = op_a && op_b;
 			ALU_OR: res_var = op_a || op_b;
-			ALU_SLT: res_var = $signed(op_a) << $signed(op_b);
-			ALU_SLTU: res_var = op_a << op_b;
+			ALU_SLT: res_var = $signed(op_a) < $signed(op_b);
+			ALU_SLTU: res_var = op_a < op_b;
 			ALU_SLL: res_var = op_a << op_b;
 			ALU_SRL: res_var = op_a >> op_b;
-			ALU_SRA: res_var = $signed(op_a) >> $signed(op_b);
+			ALU_SRA: res_var = op_a >>> op_b;
 			default: res_var = 32'b0;
 		endcase
 	end
