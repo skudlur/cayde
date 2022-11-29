@@ -10,7 +10,7 @@ module cayde_alu_controller (
 	output logic [3:0] op
 	);
 
-	assign op[0] = ((ALUop[1]==1'b1) && (funct7==7'b0000000) && ((funct3==3'b110)||(funct3==3'b100)||(funct3==3'b011));
+	assign op[0] = ((ALUop[1]==1'b1) && (funct7==7'b0000000) && ((funct3==3'b110)||(funct3==3'b100)||(funct3==3'b011)));
 	assign op[1] = ((ALUop[1]==1'b1) && (funct7==7'b0000000) && ((funct3==3'b000)||(funct3==3'b100)||(funct3==3'b010)));
 	assign op[2] = 0;
 	assign op[3] = 0;

@@ -19,6 +19,10 @@ module cayde (  input logic clk, rst,
 	logic [6:0] alu_op;
 	logic [31:0] reg1, reg2;
 
+	assign rs1 = instr[19:15];
+	assign rd = instr[11:7];
+	assign rs2 = instr[24:20];
+
 	// PC update
 	cayde_adder #(9) pcadd (PC, 9'b100, PCp4);
 	cayde_dff #(9) pcreg (clk, rst, PCval, PC);
@@ -32,9 +36,6 @@ module cayde (  input logic clk, rst,
 	cayde_decoder decoder (instr, alu_op)
 
 	// Register file
-	assign rs1 = instr[19:15];
-	assign rd = instr[11:7];
-	assign rs2 = instr[24:20];
 	cayde_regfile regfile(clk, rst, rs1, rs2, rd, res, RegWrite, reg1, reg2)
 
 	// ALU
